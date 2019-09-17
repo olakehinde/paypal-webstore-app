@@ -15,6 +15,10 @@ class CreateSubordersTable extends Migration
     {
         Schema::create('suborders', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('product_id');
+            $table->integer('order_id');
+            $table->double('price', 2);
+            $table->integer('quantity');
             $table->timestamps();
         });
     }
