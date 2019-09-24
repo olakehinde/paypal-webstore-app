@@ -13,4 +13,15 @@ class WebstoreController extends Controller
 
     	return view('store')->with('products', $products);
     }
+
+    public function addToCart(Product $product) {
+    	$input['id'] = $product->id;
+    	$input['name'] = $product->name;
+    	$input['qty'] = 1;
+    	$input['price'] = $product->price;
+
+    	Cart::add($input);
+
+        return redirect()->to('/store');
+    }
 }
