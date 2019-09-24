@@ -15,7 +15,7 @@ class CreateInvoicesTable extends Migration
     {
         Schema::create('invoices', function (Blueprint $table) {
             $table->bigIncrements('id');
-            // store dta returned by paypal API
+            // store data returned by paypal API
             $table->string('customer_id')->nullable();
             $table->string('customer_email')->nullable();
             $table->string('country_code')->nullable();
