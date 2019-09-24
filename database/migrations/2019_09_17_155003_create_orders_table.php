@@ -17,7 +17,7 @@ class CreateOrdersTable extends Migration
             $table->bigIncrements('id');
             $table->integer('user_id');
             $table->integer('invoice_id')->nullable();
-            $table->string('status')
+            $table->string('status');
             $table->timestamps();
         });
     }
