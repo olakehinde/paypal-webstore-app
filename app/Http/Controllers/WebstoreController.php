@@ -11,7 +11,7 @@ class WebstoreController extends Controller
     public function index() {
     	$products = Product::all();
 
-    	return view('store')->with('products', $products);
+    	return view('home')->with('products', $products);
     }
 
     public function addToCart(Product $product) {
@@ -23,5 +23,11 @@ class WebstoreController extends Controller
     	Cart::add($input);
 
         return redirect()->to('/store');
+    }
+
+    public function removeFromCart($id) {
+    	Cart::remove($id);
+
+    	return redirect()->to('home')->with(['success' => 'Item Successfully removed from Cart']);
     }
 }
