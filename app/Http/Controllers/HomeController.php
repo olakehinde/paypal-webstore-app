@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Product;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,22 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $products = [
+            'product 1' => [
+                'name' => 'Product 1',
+                'price' => 40
+            ],
+            'product 2' => [
+                'name' => 'Product 2',
+                'price' => 50
+            ],
+            'product 3' => [
+                'name' => 'Product 3',
+                'price' => 80
+            ],
+        ];
+        // $products = (object) $getProducts;
+
+        return view('home')->with('products', $products);
     }
 }
