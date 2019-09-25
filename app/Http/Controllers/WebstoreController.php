@@ -30,4 +30,10 @@ class WebstoreController extends Controller
 
     	return redirect()->to('home')->with(['success' => 'Item Successfully removed from Cart']);
     }
+
+    public function destroyCart() {
+    	Cart::destroy();
+
+    	return redirect()->to('home')->with(['success' => 'Cart removed Successfully']);
+    }
 }
